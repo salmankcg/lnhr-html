@@ -1,0 +1,144 @@
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('../fonts/TTNormsPro-Light.eot');
+  src: url('../fonts/TTNormsPro-Light.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/TTNormsPro-Light.woff2') format('woff2'),
+      url('../fonts/TTNormsPro-Light.woff') format('woff'),
+      url('../fonts/TTNormsPro-Light.ttf') format('truetype'),
+      url('../fonts/TTNormsPro-Light.svg#TTNormsPro-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('../fonts/TTNormsPro-Bold.eot');
+  src: url('../fonts/TTNormsPro-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/TTNormsPro-Bold.woff2') format('woff2'),
+      url('../fonts/TTNormsPro-Bold.woff') format('woff'),
+      url('../fonts/TTNormsPro-Bold.ttf') format('truetype'),
+      url('../fonts/TTNormsPro-Bold.svg#TTNormsPro-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('../fonts/TTNormsPro-Regular.eot');
+  src: url('../fonts/TTNormsPro-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/TTNormsPro-Regular.woff2') format('woff2'),
+      url('../fonts/TTNormsPro-Regular.woff') format('woff'),
+      url('../fonts/TTNormsPro-Regular.ttf') format('truetype'),
+      url('../fonts/TTNormsPro-Regular.svg#TTNormsPro-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('TTNormsPro-Thin.eot');
+  src: url('TTNormsPro-Thin.eot?#iefix') format('embedded-opentype'),
+      url('TTNormsPro-Thin.woff2') format('woff2'),
+      url('TTNormsPro-Thin.woff') format('woff'),
+      url('TTNormsPro-Thin.ttf') format('truetype'),
+      url('TTNormsPro-Thin.svg#TTNormsPro-Thin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  
+  body,
+  html {
+    height: 100%;
+  }
+  body {
+    @include margnpad;
+    overflow-x: hidden;
+    font-family: $bodyfont;
+    font-size: $bodyfontsize;
+  }
+  main,
+  header,
+  section,
+  footer {
+    width: 100%;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include margnpad;
+  }
+  a,
+  a:hover,
+  a:focus,
+  button,
+  button:hover,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select, 
+  select:focus
+  {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  ul,
+  ol,
+  li,
+  a,
+  p {
+    @include margnpad;
+    list-style: none;
+  }
+  a,
+  img
+  {
+    @include transition(0.3s ease-in-out);
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  a {
+    display: inline-block;
+    @include transition(0.3s ease-in-out);
+  }
+  .clearfix {
+    content: "";
+    clear: both;
+    display: block;
+  }
+  .container {
+    width: 1204px;
+    margin: 0 auto;
+    @include small-pc {
+      max-width: 1140px;
+    }
+    @include laptop {
+      max-width: 960px;
+    }
+    @include tablet {
+      max-width: 720px;
+    }
+    @include mini-tablet {
+      max-width: 540px;
+    }
+    @include phone-landscape {
+      max-width: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
