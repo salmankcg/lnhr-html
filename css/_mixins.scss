@@ -142,7 +142,6 @@
     padding-bottom: $bottom;
     padding-left: $left;
   }
-
   
   // generic transform
   @mixin transform($transforms) {
@@ -159,6 +158,12 @@
     -ms-transform-origin: $origin;
     -webkit-transform-origin: $origin;
     transform-origin: $origin;
+  }
+
+  @mixin golden-gradient {
+    background-image: -moz-linear-gradient( -180deg, rgb(170,147,93) 0%, rgb(251,250,182) 100%);
+    background-image: -webkit-linear-gradient( -180deg, rgb(170,147,93) 0%, rgb(251,250,182) 100%);
+    background-image: -ms-linear-gradient( -180deg, rgb(170,147,93) 0%, rgb(251,250,182) 100%);
   }
   
   // rotate
@@ -181,7 +186,6 @@
   @mixin rotate($deg) {
     @include transform(rotate(#{$deg}deg));
   }
-  
   
   //Responsive view ports
   @mixin desktop-only {

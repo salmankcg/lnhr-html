@@ -2,7 +2,14 @@
     background-color: $blackTint1;
     @include position(fixed, 0, 0, auto,0);
     padding-top: 35px;   
+    @include tablet {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
     &__top {
+      @include tablet {
+        display: none;
+      }
         ul {
             @include flex;
             @include justifyend;
@@ -45,7 +52,7 @@
     } 
 }
 
-.navbar {
+.lnhr_new_navbar {
     &__Holder {
       @include flex;
       @include justifystart;
@@ -60,9 +67,13 @@
       @include tablet {
         position: relative;
         z-index: 3;
+        width:130px;
       }
       @include mini-tablet {
-        width: 180px;
+        width: 120px;
+      }
+      @include phone-landscape{
+        width: 100px;
       }
       img {
         width: 100%;
@@ -80,7 +91,7 @@
         overflow-y: auto;
         pointer-events: none;
         // opacity: 0;
-        // background-color: rgba($navyblue, 1);
+        background-color: rgba($blackTint2, 1);
         @include position(absolute, $top: 0, $left: 0, $bottom: null, $right: null);
         @include translate(-100%, 0);
         @include transition(all 500ms ease-in-out);
@@ -96,7 +107,7 @@
     }
 }
 
-.navbar__menu {
+.lnhr_new_navbar__menu {
     @include flex;
     li {
       position: relative;
@@ -127,12 +138,13 @@
         }
         @include tablet {
           padding: 12px 0;
+          font-size: 13px;
         }
         &:hover {
           color: $OrangyYellow;
         }
       }
-      .navbar__menuCarot {
+      .lnhr_new_navbar__menuCarot {
         display: inline-block;
         vertical-align: middle;
         cursor: pointer;
@@ -145,14 +157,13 @@
       }
     }  
     @include upto-tablet {
-      li.dropdoenHolder {
+      li.lnhr_new_dropdoenHolder {
         position: relative;
-        .dropdownMenu {
-          min-width: 245px;
-          padding: 10px 20px;
+        .lnhr_new_dropdownMenu {
+          min-width: 120%;
           opacity: 0;
           pointer-events: none;
-          background-color: $black;
+          background-color: $blackTint3;
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
           @include position(absolute, $top: 100%, $left: 0, $bottom: null, $right: null);
           @include translate(0, 40px);
@@ -166,27 +177,29 @@
             border-bottom-color: $white;
           }
           li {
+            margin: 0;
+            position: relative;
             + li {
-              border-top: 1px solid rgba($white,0.1);
+              border-top: 1px solid rgba($blacklight, 1);
             }
             a {
               color: $white;
-              padding: 13px 0;
+              font-size: 13px;
+              padding: 1rem 0.6rem;
             }
-            &:hover {
-              a {
-                color: $OrangyYellow;
-              }
+            &:last-child{
+              border-bottom: 1px solid $blacklight;
             }
           }
           &::after {
             content: '';
             width: 15px;
             height: 15px;
-            background-color: $black;
-            @include position(absolute, -7px, auto, auto, 20px);
+            background-color: $blackTint3;
+            @include position(absolute, -7px, 0, auto, 0);
             @include rotate(45);
             z-index: -1;
+            margin: 0 auto;
           }
         }
         &::after {
@@ -197,31 +210,50 @@
           @include position(absolute, auto, auto, -10px, 0);
         }
         &:hover {
-          .navbar__menuCarot {
+          .lnhr_new_navbar__menuCarot {
             svg {
               @include rotate(180);
             }
           }
-          .dropdownMenu {
+          .lnhr_new_dropdownMenu {
             @include translate(0, 4px);
             opacity: 1;
             pointer-events: all;
           }
         }
+        .lnhr_new_dropdownSubHolder {
+          .lnhr_new_navbar__menuCarot {
+            @include rotate(90);
+            top: 35%;
+          }
+          &:hover {
+            .lnhr_new_dropdownSubMenu 
+            {
+              opacity: 1;
+            }
+          }
+        }
+        .lnhr_new_dropdownSubMenu{
+          @include position(absolute, 0, -99px, auto, auto);
+          background-color: $black;
+          @include transition(all 0.3s ease-in-out);
+          opacity: 0;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+        }
       }
     }
     @include tablet {
       width: 100%;
-      li.dropdoenHolder { 
+      li.lnhr_new_dropdoenHolder { 
         @include flex;
         @include flex-column;
-        .navbar__menuCarot {
+        .lnhr_new_navbar__menuCarot {
           &.active {
             @include position(absolute, 10px, 0, auto, auto);
             @include rotate(180);
           }
         }
-        .dropdownMenu {
+        .lnhr_new_dropdownMenu {
           display: none;  
           padding: 0;
           border-bottom: 1px solid $OrangyYellow;
@@ -247,13 +279,13 @@
           }
         }
         &:hover {
-          .navbar__menuCarot {
+          .lnhr_new_navbar__menuCarot {
             svg {
               @include rotate(0);
             }
           }
         }
-        .navbar__menuCarot {
+        .lnhr_new_navbar__menuCarot {
           @include position(absolute, $top: 50%, $right: 0, $bottom: auto, $left: auto);
           width: 20px;
           height: 20px;
@@ -261,18 +293,36 @@
           text-align: center;
           cursor: pointer;
         }
+        .lnhr_new_dropdownSubHolder {
+          position: relative;
+          .lnhr_new_navbar__menuCarot {
+            @include position(absolute, $top: 22px, $right: 0, $bottom: auto, $left: auto);
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            &.active {
+              @include position(absolute, 8px, 0, auto, auto);
+              @include rotate(180);
+            }
+          }
+        }
+        .lnhr_new_dropdownSubMenu {
+          padding-left: 10px;
+          border-bottom: 1px solid $OrangyYellow;
+        }
       }
     }
 }
 
 /*Mobile Navigation*/
-.menuIcon {
+.lnhr_new_menuIcon {
     position: relative;
-    width: 30px;
+    width: 25px;
     height: 25px;
     display: none;
     cursor: pointer;
-    margin-left: auto;
     @include tablet {
         @include flex;
         @include aligncenter;
@@ -304,12 +354,30 @@
       width: 100%;
       height: 3px;
       display: block;
-      background: $OrangyYellow;
+      background: $white;
       @include transition(0.3s ease-in-out);
       &:nth-child(2) {
         margin: 6px 0;
         margin-left: auto;
       }
     }
+    &::after {
+      content: 'Menu';
+      @include position(absolute, 0, 0, 0, -46px);
+      color: $white;
+      font-size: 14px;
+      width: 40px;
+    }
 }
 
+.lnhr_new_mobilephn {
+  display: none;
+  @include tablet {
+    @include flex;
+    @include aligncenter;
+    margin-left: auto;
+    margin-right: 56px;
+    position: relative;
+    z-index: 3;
+  }
+}

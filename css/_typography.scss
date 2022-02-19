@@ -142,3 +142,17 @@
       padding-right: 15px;
     }
   }
+
+  @include tablet{
+    .lnhr_new_header{
+      .container {
+        max-width: 1240px;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+  }
+}
+  
